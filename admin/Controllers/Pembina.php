@@ -1,7 +1,7 @@
 <?php
 require_once 'Config/DB.php';
 
-class Prodi
+class Pembina
 {
     private $pdo;
 
@@ -12,7 +12,8 @@ class Prodi
 
     public function index()
     {
-        
+        $stmt = $this->pdo->query("SELECT * FROM pembina");
+        return $stmt->fetchAll();
     }
 
     public function show($id)
@@ -36,4 +37,4 @@ class Prodi
     }
 }
 
-$prodi = new Prodi($pdo);
+$pembina = new Pembina($pdo);

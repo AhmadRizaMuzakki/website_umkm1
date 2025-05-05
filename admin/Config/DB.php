@@ -4,9 +4,9 @@
  * File ini akan digunakan untuk memanggil database
  */
 $host = "localhost";
-$dbname = "nama_database";
-$username = "username";
-$password = "password";
+$dbname = "direktori_umkm";
+$username = "root";
+$password = "";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password, [

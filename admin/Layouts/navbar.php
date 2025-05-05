@@ -181,6 +181,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="?url=pembina" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Pembina
+                        </p>
+                    </a>
+                </li>
                 
                 
             </ul>
