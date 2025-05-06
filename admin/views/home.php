@@ -1,3 +1,10 @@
+<?php
+
+require_once ('Controllers/Pembina.php');
+
+$count = count($pembina->index());
+
+?>
 <section class="content">
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -6,9 +13,9 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3><?= $count ?></h3>
 
-                        <p>New Orders</p>
+                        <p>Pembina</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>

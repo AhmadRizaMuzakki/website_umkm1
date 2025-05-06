@@ -5,34 +5,29 @@
             <div class="card w-100">
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Tambah Pembina
+                        Tambah User
                     </button>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>no</th>
-                                <th>nama</th>
-                                <th>gender</th>
-                                <th>tanggal lahir</th>
-                                <th>tempat lahir</th>
-                                <th>kehlian</th>
+                                <th>email</th>
+                                <th>password</th>
                                 <th>aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            require_once('Controllers/Pembina.php');
+                            require_once('Controllers/Users.php');
                             $nomor = 1;
-                            $row = $pembina->index();
+                            $row = $users->index();
                             foreach ($row as $list) {
                                 echo "
                                 <tr>
                                 <td>" . $nomor++ . "</td>
-                                <td>" . $list['nama'] . "</td>
-                                <td>" . $list['gender'] . "</td>
-                                <td>" . $list['tgl_lahir'] . "</td>
-                                <td>" . $list['tmp_lahir'] . "</td>
-                                <td>" . $list['keahlian'] . "</td>
+                                <td>" . $list['email'] . "</td>
+                                <td>" . hash('sha256',$list['password']) . "</td>
+                                
                                 <td>
                                     <button type='button' class='btn btn-warning btn-sm' data-toggle='modal' data-target='#editModal" . $list['id'] . "'>
                                         Edit
@@ -51,29 +46,15 @@
                                                         <input type='hidden' name='id' value='" . $list['id'] . "'>
                                                         <input type='hidden' name='type' value='edit'>
                                                         <div class='form-group'>
-                                                            <label>Nama</label>
-                                                            <input type='text' class='form-control' name='nama' value='" . $list['nama'] . "' required>
+                                                            <label>Email</label>
+                                                            <input type='text' class='form-control' name='nama' value='" . $list['email'] . "' required>
+                                                        </div>
+                                                        <div class='form-group'>
+                                                            <label>password</label>
+                                                            <input type='text' class='form-control' name='nama' required>
                                                         </div>
                                                         
-                                                        <div class='form-group'>
-                                                            <label>Gender</label>
-                                                            <select class='form-control' name='gender' required>
-                                                                <option value='L' " . ($list['gender'] == 'L' ? 'selected' : '') . ">Laki-laki</option>
-                                                                <option value='P' " . ($list['gender'] == 'P' ? 'selected' : '') . ">Perempuan</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class='form-group'>
-                                                            <label>Tempat Lahir</label>
-                                                            <input type='text' class='form-control' name='tmp_lahir' value='" . $list['tmp_lahir'] . "' required>
-                                                        </div>
-                                                        <div class='form-group'>
-                                                            <label>Tanggal Lahir</label>
-                                                            <input type='date' class='form-control' name='tgl_lahir' value='" . $list['tgl_lahir'] . "' required>
-                                                        </div>
-                                                        <div class='form-group'>
-                                                            <label>Keahlian</label>
-                                                            <input type='text' class='form-control' name='keahlian' value='" . $list['keahlian'] . "' required>
-                                                        </div>
+                                                        
                                                         
                                                         
                                                     </div>

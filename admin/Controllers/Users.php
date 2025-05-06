@@ -1,7 +1,7 @@
 <?php
 require_once 'Config/DB.php';
 
-class Pembina
+class Users
 {
     private $pdo;
 
@@ -12,7 +12,7 @@ class Pembina
 
     public function index()
     {
-        $stmt = $this->pdo->query("SELECT * FROM pembina");
+        $stmt = $this->pdo->query("SELECT * FROM users");
         return $stmt->fetchAll();
     }
 
@@ -40,4 +40,4 @@ class Pembina
     }
 }
 
-$pembina = new Pembina($pdo);
+$users = new Users($pdo);
