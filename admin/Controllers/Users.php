@@ -23,20 +23,21 @@ class Users
 
     public function create($data)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO pembina (nama,gender,tgl_lahir,tmp_lahir,keahlian) VALUES (?,?,?,?,?)");
-        return $stmt->execute([$data['nama'], $data['gender'], $data['tgl_lahir'],$data['tmp_lahir'],$data['keahlian']]);
+        $stmt = $this->pdo->prepare("INSERT INTO users(email,password) VALUES (?,?)");
+        return $stmt->execute([$data['email'], $data['password']]);
     }
     
     public function update($id, $data)
     {
         
-        $stmt = $this->pdo->prepare("UPDATE pembina SET nama=?, gender = ?, tgl_lahir =?,tmp_lahir=?,keahlian=? WHERE id = ?");
-        return $stmt->execute([$data['nama'], $data['gender'], $data['tgl_lahir'],$data['tmp_lahir'],$data['keahlian'],$id]);
+        $stmt = $this->pdo->prepare("UPDATE users SET email=?, password = ? WHERE id = ?");
+        return $stmt->execute([$data['email'], $data['password'],$id]);
     }
 
     public function delete($id)
     {
-        
+        $stmt = $this->pdo->prepare("DELETE FROM users WHERE id = ?");  
+        return $stmt->execute([$id]);
     }
 }
 

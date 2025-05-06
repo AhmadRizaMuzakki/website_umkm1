@@ -14,7 +14,6 @@ $count = count($pembina->index());
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3><?= $count ?></h3>
-
                         <p>Pembina</p>
                     </div>
                     <div class="icon">

@@ -137,21 +137,10 @@
                             </div>
                             <form method="post">
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="kode">Kode</label>
-                                        <input class="form-control" name="kode" type="text" placeholder="Kode" required />
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="nama">Nama</label>
                                         <input class="form-control" name="nama" type="text" placeholder="Nama" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmp_lahir">Tempat Lahir</label>
-                                        <input class="form-control" name="tmp_lahir" type="text" placeholder="Tempat Lahir" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tgl_lahir">Tanggal Lahir</label>
-                                        <input class="form-control" name="tgl_lahir" type="date" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Gender</label>
@@ -165,12 +154,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input class="form-control" name="email" type="email" placeholder="Email" required />
+                                        <label for="tmp_lahir">Tempat Lahir</label>
+                                        <input class="form-control" name="tmp_lahir" type="text" placeholder="Tempat Lahir" required />
                                     </div>
                                     <div class="form-group">
-                                        <label for="alamat">Alamat</label>
-                                        <textarea class="form-control" name="alamat" placeholder="Alamat" style="height: 10rem;" required></textarea>
+                                        <label for="tgl_lahir">Tanggal Lahir</label>
+                                        <input class="form-control" name="tgl_lahir" type="date" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Keahlian</label>
+                                        <input class="form-control" name="keahlian" type="text" placeholder="Keahlian" required />
                                     </div>
                                     
                                 </div>

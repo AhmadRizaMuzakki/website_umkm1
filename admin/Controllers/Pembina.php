@@ -36,7 +36,8 @@ class Pembina
 
     public function delete($id)
     {
-        
+        $stmt = $this->pdo->prepare("DELETE FROM pembina WHERE id = ?");  
+        return $stmt->execute([$id]);
     }
 }
 
