@@ -71,17 +71,17 @@
                                     ];
 
                                     $kategori->create($data);
-                                    echo '<script>alert("Data berhasil ditambahkan")</script><meta http-equiv="refresh" content="0; url=?url=ka$kategori_umkm">';
+                                    echo '<script>alert("Data berhasil ditambahkan")</script><meta http-equiv="refresh" content="0; url=?url=kategori_umkm">';
                                 } elseif ($_POST['type'] == 'edit') {
                                     $data = [
                                         'nama' => $_POST['nama']
                                     ];
 
                                     $kategori->update($_POST['id'], $data);
-                                    echo '<script>alert("Data berhasil diupdate")</script><meta http-equiv="refresh" content="0; url=?url=ka$kategori_umkm">';
+                                    echo '<script>alert("Data berhasil diupdate")</script><meta http-equiv="refresh" content="0; url=?url=kategori_umkm">';
                                 } elseif ($_POST['type'] == 'delete') {
                                     $kategori->delete($_POST['id']);
-                                    echo '<script>alert("Data berhasil dihapus")</script><meta http-equiv="refresh" content="0; url=?url=ka$kategori__umkm">';
+                                    echo '<script>alert("Data berhasil dihapus")</script><meta http-equiv="refresh" content="0; url=?url=kategori_umkm">';
                                 }
                             }
                             ?>

@@ -14,14 +14,17 @@
                                 <th>nama</th>
                                 <th>latitude</th>
                                 <th>longitude</th>
+                                <th>Provinsi</th>
                                 <th>aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             require_once('Controllers/Kabkota.php');
+                            require_once('Controllers/Provinsi.php');
                             $nomor = 1;
                             $row = $kabkota->index();
+                            $provinsi = $provinsi->index();
                             foreach ($row as $list) {
                                 echo "
                                 <tr>
@@ -29,6 +32,7 @@
                                 <td>" . $list['nama'] . "</td>
                                 <td>" . $list['latitude'] . "</td>
                                 <td>" . $list['longitude'] . "</td>
+                                <td>" . $list['provinsi_id'] . "</td>
                                 <td>
                                     <button type='button' class='btn btn-warning btn-sm' data-toggle='modal' data-target='#editModal" . $list['id'] . "'>
                                         Edit
@@ -58,6 +62,16 @@
                                                             <label>longitude</label>
                                                             <input type='text' class='form-control' name='longitude' value='" . $list['longitude'] . "' required>
                                                         </div>
+                                                        <div class='form-group'>
+                                                        <label>Provinsi</label>
+                                                        <select class='form-control' name='provinsi_id' required>";
+                                                        foreach($provinsi as $daerah) {
+                                                            $selected = ($daerah['id'] == $list['provinsi_id']) ? 'selected' : '';
+                                                            echo "<option value='".$daerah['id']."' ".$selected.">".$daerah['nama']."</option>";
+                                                        }
+                                                        echo "
+                                                        </select>
+                                                    </div>
                                                     </div>
                                                     <div class='modal-footer'>
                                                         <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
@@ -81,7 +95,8 @@
                                     $data = [
                                         'nama' => $_POST['nama'],
                                         'latitude' => $_POST['latitude'],
-                                        'longitude' => $_POST['longitude']
+                                        'longitude' => $_POST['longitude'],
+                                        'provinsi_id' => $_POST['provinsi_id']
                                     ];
 
                                     $kabkota->create($data);
@@ -90,7 +105,8 @@
                                     $data = [
                                         'nama' => $_POST['nama'],
                                         'latitude' => $_POST['latitude'],
-                                        'longitude' => $_POST['longitude']
+                                        'longitude' => $_POST['longitude'],
+                                        'provinsi_id' => $_POST['provinsi_id']
                                     ];
 
                                     $kabkota->update($_POST['id'], $data);
@@ -128,6 +144,16 @@
                                         <label for="nama">Longitude</label>
                                         <input class="form-control" name="longitude" type="text" placeholder="Longitude" required />
                                     </div>
+                                    <label for="nama">Provinsi</label>
+                                    <select class="form-control" name="provinsi_id" required>
+                                            <option value="">Pilih Kategori</option>
+                                            <?php
+                                            
+                                            foreach($provinsi as $list) {
+                                                echo "<option value='".$list['id']."'>".$list['nama']."</option>";
+                                            }
+                                            ?>
+                                        </select>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

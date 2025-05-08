@@ -12,7 +12,7 @@ class Kabkota
 
     public function index()
     {
-        $stmt = $this->pdo->query("SELECT * FROM kabkota");
+        $stmt = $this->pdo->query("SELECT kabkota.*, provinsi.nama as provinsi_id FROM kabkota inner join provinsi on kabkota.provinsi_id = provinsi.id");
         return $stmt->fetchAll();
     }
 
@@ -23,21 +23,31 @@ class Kabkota
 
     public function create($data)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO pembina (nama,gender,tgl_lahir,tmp_lahir,keahlian) VALUES (?,?,?,?,?)");
-        return $stmt->execute([$data['nama'], $data['gender'], $data['tgl_lahir'],$data['tmp_lahir'],$data['keahlian']]);
+        $stmt = $this->pdo->prepare("INSERT INTO kabkota (nama,latitude,longitude,provinsi_id) VALUES (?,?,?,?)");
+        return $stmt->execute([$data['nama'], $data['latitude'], $data['longitude'],$data['provinsi_id']]);
     }
     
     public function update($id, $data)
     {
         
-        $stmt = $this->pdo->prepare("UPDATE pembina SET nama=?, gender = ?, tgl_lahir =?,tmp_lahir=?,keahlian=? WHERE id = ?");
-        return $stmt->execute([$data['nama'], $data['gender'], $data['tgl_lahir'],$data['tmp_lahir'],$data['keahlian'],$id]);
+        $stmt = $this->pdo->prepare("UPDATE kabkota SET nama=?, latitude = ?, longitude =?,provinsi_id=? WHERE id = ?");
+        return $stmt->execute([$data['nama'], $data['latitude'], $data['longitude'],$data['provinsi_id'],$id]);
     }
 
     public function delete($id)
     {
-        $stmt = $this->pdo->prepare("DELETE FROM pembina WHERE id = ?");  
-        return $stmt->execute([$id]);
+        try {
+            // Hapus data terkait di tabel periksa terlebih dahulu
+            $stmt = $this->pdo->prepare("DELETE FROM umkm WHERE kabkota_id = ?");
+            $stmt->execute([$id]);
+            
+            // Kemudian hapus data paramedik
+            $stmt = $this->pdo->prepare("DELETE FROM kabkota WHERE id = ?");
+            return $stmt->execute([$id]);
+        } catch (PDOException $e) {
+            // Tangani error jika terjadi
+            return false;
+        }
     }
 }
 

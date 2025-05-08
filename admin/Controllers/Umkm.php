@@ -25,11 +25,22 @@ class Umkm
 
         return $stmt->fetchAll();
     }
+    
+    public function modal()
+{
+    $stmt = $this->pdo->query("SELECT SUM(modal) AS total_modal FROM umkm");
+    $result = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as associative array
+    
+    return $result['total_modal']; // Return the sum value directly
+}
+    public function pemilik()
+{
+    $stmt = $this->pdo->query("SELECT pemilik  FROM umkm");
+    $result = $stmt->fetchAll(); // Fetch as associative array
+    
+    return $result; // Return the sum value directly
+}
 
-    public function show($id)
-    {
-        
-    }
 
     public function create($data)
     {

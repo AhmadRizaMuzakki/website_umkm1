@@ -163,7 +163,7 @@
                                     ];
 
                                     $umkm->create($data);
-                                    // echo '<script>alert("Data berhasil ditambahkan")</script><meta http-equiv="refresh" content="0; url=?url=umkm">';
+                                    echo '<script>alert("Data berhasil ditambahkan")</script><meta http-equiv="refresh" content="0; url=?url=umkm">';
                                 } elseif ($_POST['type'] == 'edit') {
                                     $data = [
                                         'nama' => $_POST['nama'],
@@ -234,9 +234,8 @@
                                         <select class="form-control" name="kabkota_id" required>
                                             <option value="">Pilih Kabkota</option>
                                             <?php
-                                            require_once('Controllers/Kabkota.php');
                                             
-                                            $umkm_kabkota = $kabkota->index();
+                                            
                                             foreach($umkm_kabkota as $kabkota) {
                                                 echo "<option value='".$kabkota['id']."'>".$kabkota['nama']."</option>";
                                             }
@@ -245,11 +244,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="unit_kerja_id">Kategori</label>
-                                        <select class="form-control" name="kategori" required>
+                                        <select class="form-control" name="kategori_umkm_id" required>
                                             <option value="">Pilih Kategori</option>
                                             <?php
-                                            require_once('Controllers/Kategori_umkm.php');
-                                            $kategori_umkm = $kategori->index();
+                                            
                                             foreach($kategori_umkm as $kategori) {
                                                 echo "<option value='".$kategori['id']."'>".$kategori['nama']."</option>";
                                             }
@@ -261,7 +259,7 @@
                                         <select class="form-control" name="pembina_id" required>
                                             <option value="">Pilih Pembina</option>
                                             <?php
-                                            require_once('Controllers/Pembina.php');
+                                            
                                             foreach($pembina as $pembina) {
                                                 echo "<option value='".$pembina['id']."'>".$pembina['nama']."</option>";
                                             }
