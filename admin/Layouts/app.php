@@ -1,3 +1,7 @@
+<?php
+
+                $username = $_SESSION['username'];
+                ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +10,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+
     <div class="wrapper">
         <?php
         include_once('Layouts/navbar.php'); ?>
@@ -17,6 +22,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
+                            
                             <h1 class="m-0"><?= $title ?></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">

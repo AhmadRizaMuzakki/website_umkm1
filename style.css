@@ -14,7 +14,7 @@ body {
     padding: 40px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 350px;
   }
   
   .login-container h2 {
@@ -23,9 +23,9 @@ body {
     color: #333;
   }
   
-  .login-container input[type="text"],
+  .login-container input[type="email"],
   .login-container input[type="password"] {
-    width: 100%;
+    width: 90%;
     padding: 12px 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -33,7 +33,7 @@ body {
   }
   
   .login-container button {
-    width: 100%;
+    width: 96%;
     padding: 12px;
     background-color: #4a69bd;
     border: none;

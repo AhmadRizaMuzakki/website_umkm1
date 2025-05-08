@@ -208,10 +208,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" style="font-size: 30px; width: 50px;height:50px;" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+            
+                <a href="?=home" class="d-block" style="font-size: 30px; margin-top: -5px;"><?= $username ?></a>
             </div>
         </div>
 
@@ -246,6 +247,24 @@
                     <a href="?url=umkm" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Umkm</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="?url=kategori_umkm" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Kategori</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="?url=kabkota" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Kabkota</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="?url=provinsi" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Provinsi</p>
                     </a>
                 </li>
             </ul>
