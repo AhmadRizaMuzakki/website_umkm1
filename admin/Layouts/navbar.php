@@ -279,11 +279,11 @@
         <!-- /.sidebar-menu -->
 
         <!-- Nav Item fixed at the bottom -->
-        <ul class="nav" style="position: absolute; bottom: 0; width: 100%; padding-top: 10px; ">
+        <ul class="nav" style="position: absolute; bottom: 0; width: 100%; padding-top: 10px; padding-left: 5px; ">
             <li class="nav-item">
                 <form action="../logout.php" method="POST" style="margin: 0; padding: 0;">
-                    <button type="submit" name="delete" value="delete" class="nav-link d-flex align-items-center" style="color:#fff;background: none; border: none; margin-bottom:10px; width: 100%; text-align: left; font-size: 30px;">
-                        <i class="nav-icon fas fa-sign-out-alt mr-2 mt-1" style="font-size: 30px;"></i>
+                    <button type="submit" name="delete" value="delete" class="nav-link ms-5 d-flex align-items-center" style="color:#fff;background: none; border: none; margin-bottom:10px; width: 100%; text-align: left; font-size: 30px;">
+                        <i class="nav-icon fas fa-sign-out-alt mr-3 mt-1" style="font-size: 30px;"></i>
                         Logout
                     </button>
                 </form>
