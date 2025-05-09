@@ -8,7 +8,7 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="?url=home" class="nav-link">Home</a>
         </li>
-        
+
     </ul>
 
     <!-- Right navbar links -->
@@ -196,7 +196,8 @@
         </ul>
     </div>
     <!-- /.sidebar -->
-</aside><aside class="main-sidebar sidebar-dark-primary elevation-4">
+</aside>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -211,7 +212,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" style="font-size: 30px; width: 50px;height:50px;" alt="User Image">
             </div>
             <div class="info">
-            
+
                 <a href="?=home" class="d-block" style="font-size: 30px; margin-top: -5px;"><?= $username ?></a>
             </div>
         </div>
@@ -267,19 +268,25 @@
                         <p>Provinsi</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="?url=users" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
 
         <!-- Nav Item fixed at the bottom -->
-        <ul class="nav" style="position: absolute; bottom: 0; width: 100%; padding-top: 10px;">
+        <ul class="nav" style="position: absolute; bottom: 0; width: 100%; padding-top: 10px; ">
             <li class="nav-item">
-                <a href="?url=users" class="nav-link">
-                    <div class="d-flex">
-                        <i class="nav-icon fas fa-cog mt-2"></i>
-                        <p class="mx-2" style="font-size:20px;">Users</p>
-                    </div>
-                </a>
+                <form action="../logout.php" method="POST" style="margin: 0; padding: 0;">
+                    <button type="submit" name="delete" value="delete" class="nav-link d-flex align-items-center" style="color:#fff;background: none; border: none; margin-bottom:10px; width: 100%; text-align: left; font-size: 30px;">
+                        <i class="nav-icon fas fa-sign-out-alt mr-2 mt-1" style="font-size: 30px;"></i>
+                        Logout
+                    </button>
+                </form>
             </li>
         </ul>
     </div>
