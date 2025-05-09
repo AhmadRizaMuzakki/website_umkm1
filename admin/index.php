@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once('Controllers/Page.php');
 
-session_start();
 
 if ($_SESSION['username'] == true) {
     if (isset($_GET['url'])) {
@@ -10,10 +10,10 @@ if ($_SESSION['username'] == true) {
         header("Location: ?url=home");
         exit();
     }
+    
+    $title = strtoupper($file);
+    $home = new Page("$title", "$file");
+    $home->call();
 }else{
-    header("Location: ?url=login");
+    header("Location: ../index.php");
 }
-
-$title = strtoupper($file);
-$home = new Page("$title", "$file");
-$home->call();
