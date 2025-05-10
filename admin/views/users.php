@@ -11,6 +11,7 @@
                         <thead>
                             <tr>
                                 <th>no</th>
+                                <th>username</th>
                                 <th>email</th>
                                 <th>password</th>
                                 <th>aksi</th>
@@ -25,6 +26,7 @@
                                 echo "
                                 <tr>
                                 <td>" . $nomor++ . "</td>
+                                <td>" . $list['username'] . "</td>
                                 <td>" . $list['email'] . "</td>
                                 <td>" . hash('sha256',$list['password']) . "</td>
                                 
@@ -45,6 +47,10 @@
                                                     <div class='modal-body'>
                                                         <input type='hidden' name='id' value='" . $list['id'] . "'>
                                                         <input type='hidden' name='type' value='edit'>
+                                                        <div class='form-group'>
+                                                            <label>Email</label>
+                                                            <input type='text' class='form-control' name='username' value='" . $list['username'] . "' required>
+                                                        </div>
                                                         <div class='form-group'>
                                                             <label>Email</label>
                                                             <input type='email' class='form-control' name='email' value='" . $list['email'] . "' required>
@@ -78,6 +84,7 @@
                             if (isset($_POST['type'])) {
                                 if ($_POST['type'] == 'tambah') {
                                     $data = [
+                                        'username' => $_POST['username'],
                                         'email' => $_POST['email'],
                                         'password' => $_POST['password'],
                                         
@@ -87,6 +94,7 @@
                                     echo '<script>alert("Data berhasil ditambahkan")</script><meta http-equiv="refresh" content="0; url=?url=users">';
                                 } elseif ($_POST['type'] == 'edit') {
                                     $data = [
+                                        'username' => $_POST['username'],
                                     'email' => $_POST['email'],
                                     'password' => $_POST['password'],
                                     
@@ -115,6 +123,10 @@
                             <form method="post">
                                 <div class="modal-body">
                                     
+                                    <div class="form-group">
+                                        <label for="nama">Username</label>
+                                        <input class="form-control" name="username" type="text" placeholder="username" required />
+                                    </div>
                                     <div class="form-group">
                                         <label for="nama">Email</label>
                                         <input class="form-control" name="email" type="email" placeholder="Email" required />

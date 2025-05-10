@@ -37,15 +37,15 @@ class Users
 
     public function create($data)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO users(email,password) VALUES (?,?)");
-        return $stmt->execute([$data['email'], $data['password']]);
+        $stmt = $this->pdo->prepare("INSERT INTO users(username,email,password) VALUES (?,?,?)");
+        return $stmt->execute([$data['username'],$data['email'], $data['password']]);
     }
     
     public function update($id, $data)
     {
         
-        $stmt = $this->pdo->prepare("UPDATE users SET email=?, password = ? WHERE id = ?");
-        return $stmt->execute([$data['email'], $data['password'],$id]);
+        $stmt = $this->pdo->prepare("UPDATE users SET username=?, email=?, password = ? WHERE id = ?");
+        return $stmt->execute([$data['username'],$data['email'], $data['password'],$id]);
     }
 
     public function delete($id)
